@@ -4,6 +4,12 @@ Bundler.require(:default)
 require 'active_record'
 require 'logger'
 require 'sqlite3'
+require 'uuid'
+require 'factory_girl'
+
+Factory.find_definitions
+
+require_relative File.join('.','models')
 
 task :environment do
   ActiveRecord::Base.establish_connection(YAML::load(File.open('database.yml')))
@@ -23,4 +29,11 @@ namespace :db do
     puts ActiveRecord::SchemaDumper.dump
   end
 
+end
+
+desc "Start a console"
+task :console => :environment do
+  require 'irb'
+  ARGV.clear
+  IRB.start
 end
