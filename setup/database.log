@@ -24,3 +24,50 @@ D, [2011-02-09T21:38:25.724235 #20831] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
+D, [2011-02-09T21:50:28.990362 #21593] DEBUG -- :   [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2011-02-09T21:50:28.990858 #21593] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2011-02-09T21:50:28.992190 #21593] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2011-02-09T21:50:28.992276 #21593]  INFO -- : Migrating to CreateAccounts (1)
+D, [2011-02-09T21:50:28.992539 #21593] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2011-02-09T21:50:28.996336 #21593] DEBUG -- :   [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone_number" varchar(255), "employees" integer, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+D, [2011-02-09T21:50:28.997052 #21593] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('1')
+D, [2011-02-09T22:00:41.677039 #21826] DEBUG -- :   [1m[36mSQL (1.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2011-02-09T22:00:41.678206 #21826] DEBUG -- :   [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2011-02-09T22:00:41.680395 #21826] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2011-02-09T22:00:41.680505 #21826]  INFO -- : Migrating to CreateAccounts (1)
+I, [2011-02-09T22:00:41.680553 #21826]  INFO -- : Migrating to CreateCharges (2)
+D, [2011-02-09T22:00:41.680811 #21826] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2011-02-09T22:00:41.684667 #21826] DEBUG -- :   [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "charges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "credits" integer, "name" varchar(255), "account_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+D, [2011-02-09T22:00:41.685473 #21826] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('2')
+I, [2011-02-09T22:00:41.794872 #21826]  INFO -- : Migrating to CreateDeliveries (3)
+D, [2011-02-09T22:00:41.800808 #21826] DEBUG -- :   [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "deliveries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "charge_id" integer, "account_id" integer, "time" datetime, "latitude" float, "longitude" float, "created_at" datetime, "updated_at" datetime) [0m
+D, [2011-02-09T22:00:41.801466 #21826] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('3')
+D, [2011-02-09T22:00:51.321920 #21871] DEBUG -- :   [1m[36mSQL (1.1ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2011-02-09T22:00:51.345515 #21871] DEBUG -- :   [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2011-02-09T22:00:51.346108 #21871] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2011-02-09T22:00:51.348505 #21871] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+D, [2011-02-09T22:00:51.349124 #21871] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2011-02-09T22:00:51.350875 #21871] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("accounts")
+D, [2011-02-09T22:00:51.352420 #21871] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("charges")[0m
+D, [2011-02-09T22:00:51.354277 #21871] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("deliveries")
