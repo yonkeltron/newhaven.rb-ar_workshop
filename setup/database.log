@@ -1,0 +1,26 @@
+D, [2011-02-09T21:38:11.040932 #20779] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2011-02-09T21:38:11.041409 #20779] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+D, [2011-02-09T21:38:11.142814 #20779] DEBUG -- :   [1m[36mSQL (100.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2011-02-09T21:38:11.143291 #20779] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2011-02-09T21:38:11.254422 #20779] DEBUG -- :   [1m[36mSQL (110.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2011-02-09T21:38:11.254952 #20779] DEBUG -- :   [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2011-02-09T21:38:25.696893 #20831] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2011-02-09T21:38:25.720920 #20831] DEBUG -- :   [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2011-02-09T21:38:25.721424 #20831] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2011-02-09T21:38:25.723728 #20831] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+D, [2011-02-09T21:38:25.724235 #20831] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
