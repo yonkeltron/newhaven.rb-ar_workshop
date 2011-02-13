@@ -7,6 +7,9 @@ class CreateDummyData < ActiveRecord::Migration
         rand(5).times do |i|
           charge = Factory.create(:charge, :account => account)
           delivery = Factory.create(:delivery, :charge => charge, :account => account)
+          if i % 2 > 0
+            note = Factory.create(:note, :charge => charge)
+          end
         end
       end
     end
