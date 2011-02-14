@@ -1,9 +1,11 @@
 # A sample Gemfile
 source "http://rubygems.org"
 
-gem 'activerecord', '3.0.3'
+gem 'activerecord'
 gem 'rake'
 gem 'ruby-debug19'
 gem 'sqlite3'
 gem 'factory_girl'
 gem 'uuid'
+gem 'wirble'
+gem 'hirb'

@@ -2,7 +2,7 @@ class CreateDummyData < ActiveRecord::Migration
 
   def self.up
     Account.transaction do
-      100.times do |i|
+      500.times do |i|
         account = Factory.create(:account)
         rand(5).times do |i|
           charge = Factory.create(:charge, :account => account)
