@@ -1,0 +1,28 @@
+#!/usr/bin/env rake
+
+require 'bundler/setup'
+Bundler.require(:default)
+
+# general environment task to set up AR and logging
+task :environment do
+  ActiveRecord::Base.establish_connection(YAML::load(File.open('database.yml')))
+  ActiveRecord::Base.logger = Logger.new(File.open('database.log', 'a'))
+end
+
+
+# namespace :db do
+
+#   desc "Snarf schema" # print the Ruby-syntax DB schema found by AR
+#   task :snarf => :environment do
+#     puts ActiveRecord::SchemaDumper.dump
+#   end
+
+# end
+
+
+# desc "Start a console"
+# task :console => :environment do
+#   require 'irb'
+#   ARGV.clear
+#   IRB.start
+# end
