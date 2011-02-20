@@ -2,10 +2,10 @@
 source "http://rubygems.org"
 
 gem 'activerecord'
+gem 'factory_girl'
+gem 'hirb'
 gem 'rake'
 gem 'ruby-debug19'
 gem 'sqlite3'
-gem 'factory_girl'
 gem 'uuid'
 gem 'wirble'
-gem 'hirb'
