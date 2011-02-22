@@ -9,20 +9,8 @@ task :environment do
   ActiveRecord::Base.logger = Logger.new(File.open('database.log', 'a'))
 end
 
+# snarf task
 
-# namespace :db do
+# console task
 
-#   desc "Snarf schema" # print the Ruby-syntax DB schema found by AR
-#   task :snarf => :environment do
-#     puts ActiveRecord::SchemaDumper.dump
-#   end
-
-# end
-
-
-# desc "Start a console"
-# task :console => :environment do
-#   require 'irb'
-#   ARGV.clear
-#   IRB.start
-# end
+# report tasks
