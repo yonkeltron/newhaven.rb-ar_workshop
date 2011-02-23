@@ -3,14 +3,46 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
+require 'active_record'
+require 'hirb'
+require 'rake'
+require 'ruby-debug'
+require 'sqlite3'
+require 'uuid'
+require 'wirble'
+require 'logger'
+require_relative File.join('.', 'models')
+
 # general environment task to set up AR and logging
 task :environment do
   ActiveRecord::Base.establish_connection(YAML::load(File.open('database.yml')))
   ActiveRecord::Base.logger = Logger.new(File.open('database.log', 'a'))
 end
 
-# snarf task
+desc "Snarf DB Schema"
+task :snarf => :environment do
+  puts ActiveRecord::SchemaDumper.dump
+end
 
-# console task
+desc "DB Console"
+task :console => :environment do
+  require 'irb'
+  ARGV.clear
+  IRB.start
+end
 
-# report tasks
+namespace :report do
+  desc "Account report"
+  task :accounts => :environment do
+    puts "Accounts: #{Account.count}"
+    Account.all.each do |account|
+      puts "#{account.name}"
+      puts "\tCharges: #{account.charges.count}"
+      puts "\tDeliveries: #{account.deliveries.count}"
+    end
+    puts "Invalid accounts:"
+    Account.where(:uuid => nil).all.each do |account|
+      puts "\t#{account.name}"
+    end
+  end
+end
